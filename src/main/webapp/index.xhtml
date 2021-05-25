@@ -12,6 +12,7 @@
     <ol>
         <ui:repeat value="#{treeTypes.allTreeTypes}" var="treetype">
         <li><h:link value="#{treetype.name}" outcome="treetype?treetypeId=#{treetype.id}" /></li>
+            <h:outputText value="#{treetype.treeCount()}" />
         </ui:repeat>
     </ol>
 

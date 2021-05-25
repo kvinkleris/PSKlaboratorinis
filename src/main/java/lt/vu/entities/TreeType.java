@@ -16,8 +16,7 @@ public class TreeType implements Serializable {
 
     private Long id;
     private String name;
-    private Set<Tree> treesOfType=new HashSet<>();;
-
+    public Set<Tree> treesOfType=new HashSet<>();
 
     @Id
     @GeneratedValue
@@ -45,8 +44,11 @@ public class TreeType implements Serializable {
             name = "FORESTTYPETREE",
             joinColumns = @JoinColumn(name = "TREETYPE_ID"),
             inverseJoinColumns = @JoinColumn(name = "TREE_ID"))
-    public Set<Tree> gettreesOfType(){return treesOfType;}
+    public Set<Tree> gettreesOfType(){
+        return treesOfType;}
     public void settreesOfType(Set<Tree> treesOfType) {this.treesOfType = treesOfType;}
+
+
 
 
     @Override
@@ -61,5 +63,10 @@ public class TreeType implements Serializable {
     public int hashCode() {
 
         return Objects.hash(name);
+    }
+
+    public int treeCount()
+    {
+        return treesOfType.size();
     }
 }

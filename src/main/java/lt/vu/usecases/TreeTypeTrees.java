@@ -54,6 +54,9 @@ public class TreeTypeTrees implements Serializable {
     @Getter @Setter
     private Long requiredtreeID;
 
+    @Getter @Setter
+    private int countoftrees;
+
 
 
     @PostConstruct
@@ -63,6 +66,7 @@ public class TreeTypeTrees implements Serializable {
                 FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
         Long treetypeId = Long.parseLong(requestParameters.get("treetypeId"));
         this.treeType = treetypesDAO.findOne(treetypeId);
+        countoftrees=treeType.treesOfType.size();
     }
 
     @Transactional
